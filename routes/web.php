@@ -117,6 +117,14 @@ Route::get('/adicionarproduto/{catid}', function ($catid) {
 
     $cat = Categoria::with('produtos')->find($catid);
 
+    $p = new Produto();
+    $p->nome = "Meu novo Produto Adicionado";
+    $p->estoque = "40";
+    $p->preco = "500";
 
-
+    if(isset($cat)){
+        $cat->produtos()->save($p);
+    }
+    $cat->load('produtos');
+    return $cat->toJson();
 });
