@@ -45,6 +45,8 @@ Route::get('/produtos', function () {
                     <td>Categoria</td>
                 </tr>
             </thead>";
+        echo "<tbody>";
+
         foreach($prod as $p){
             echo "<tr>";
             echo "<td>".$p->id ."</td>";
@@ -55,6 +57,9 @@ Route::get('/produtos', function () {
             echo "</tr>";
 
         }
+        echo "</tbody>";
+        echo "</table>";
+
     }
 });
 
